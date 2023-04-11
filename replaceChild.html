@@ -1,0 +1,25 @@
+<html>
+<body>
+<h2>The replaceChild() Method</h2>
+
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<button onclick="myFunction()">Replace</button>
+
+<script>
+function myFunction() {
+
+const element = document.getElementById("myList").children[2];
+
+const newNode = document.createTextNode("Sugar");
+
+element.replaceChild(newNode, element.childNodes[0]);
+}
+</script>
+
+</body>
+</html>

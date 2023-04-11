@@ -1,0 +1,20 @@
+<html>
+<body>
+<h2>The removeChild() Method</h2>
+<button onclick="myFunction()">Remove</button>
+
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<script>
+function myFunction() {
+  const list = document.getElementById("myList");
+  list.removeChild(list.lastElementChild);
+}
+</script>
+
+</body>
+</html>

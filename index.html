@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    
+        * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: sans-serif;
+       }
+       
+       
+       body {
+         background-image: url("./photo-1544716278-e513176f20b5.jfif");
+         background-repeat: no-repeat;
+         background-size: 1600px 800px;
+         color:black;
+       }
+       #course-row {
+  font-size: 20px;
+  font-weight: bolder; 
+  margin-left: -2%;
+}
+
+#credit-row {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: -2%;
+}
+
+#grade-row {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: -2%;
+}
+       .calculator-box {
+        position: absolute;
+        right: 50px;
+        width: 40%;
+        height: auto;
+        border: 2px solid maroon;
+        margin: 100px auto;
+/*  text-align: center; */
+        
+}
+/* On screens that are 1200px or less, set the width to 75% */
+@media screen and (max-width: 1200px) {
+ .calculator-box {
+    width: 50%;
+  }
+}
+
+/* On screens that are 950px or less, set the width to 75% */
+@media screen and (max-width: 950px) {
+ .calculator-box {
+    width: 75%;
+  }
+}
+
+/* On screens that are 600px or less, set the width to 90% */
+@media screen and (max-width: 600px) {
+ .calculator-box {
+    width: 90%;
+  }
+}
+
+h1 {
+  padding: 10px;
+  font-size: 25px;
+  text-align: center;
+  border: 1px solid maroon;
+  background-color: maroon;
+}
+h1:hover {
+  padding: 10px;
+  font-size: 25px;
+  text-align: center;
+  border: 1px solid maroon;
+  background-color: #ccc;
+  color: black;
+}
+  
+p{
+  padding: 20px;
+  font-size: 1rem;
+  color: black;
+  text-align: left;
+}
+       
+#course-wrapper, form {
+  color: black;
+  padding-left: px;
+  margin: 0 auto;
+  text-align: left;
+}   
+input{
+  border: none;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 20%;
+  text-align: center;
+}
+select{
+  padding: 15px;
+  border: none;
+  border-radius: 7.5px;
+  width: 20%;
+  text-align: left;
+/*   height: 30px; */
+}
+ button {
+  width: 15%;
+  height: 40px;
+  padding: 1px;
+  margin: 5px auto;
+/*   margin-left: 10px; */
+  border-width: 3px;
+  border-radius: 10%;
+  border-style: solid;
+}
+
+ button:hover {
+  width: 15%;
+  height: 40px;
+  padding: 1px;
+  margin: 5px auto;
+  border-width: 3px;
+  border-radius: 10%;
+  border-style: solid;
+  color: white;
+  background: grey;
+  border-color: grey;
+}
+
+.btn {
+  width: 95%;
+  padding: 11px;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lastp p {
+  width:150%;
+  display: inline block;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bolder;
+} 
+
+
+ #cgpa-calc{
+  position : absolute;
+  bottom: 50px;
+  left: 50px;
+ }
+ .star {
+  display: inline-block;
+  font-size: 24px;
+  color: gold;
+}
+#starsContainer{
+  position : absolute;
+  bottom: 20px;
+  left: 50px;
+  display: inline-block;
+  font-size: 18px;
+  color: gold;
+}
+
+
+  </style>
+        
+</head>
+<body>
+    <body><div class="calculator-box">
+        <h1 style="color:white"><i class="fa fa-calculator"></i> CGPA CALCULATOR</h1>
+        
+        <center><p><b>Kongu Engineering College Grading System.</b></p></center>
+        
+        <div id="course-wrapper">
+            <form action="/action_page.php">
+            <fieldset>
+                <legend style="color:black;"><i class="fa fa-book"></i><b>COURSE DETAILS</b></legend>
+            <p><span class="fa fa-bookmark"><label id="course-row" for="courses"> Courses:</label> </span>
+              <input
+                type="text"
+                placeholder="Course Code"
+                class="courses key-0"
+                required/>
+                <br>
+                <span class="fa fa-pencil"><label id="credit-row" for="credit-units"> Credit Units:</label></span>
+             <input
+                type="number"
+                class="credit-units key-0"
+                placeholder="Credit Units"
+                value=""
+                required/>
+                <br>
+                <span class="fa fa-trophy"><label id="grade-row" for="grade"> Grades: </label></span>
+              <select class="grade key-0" required>
+                <option class="grade" value="select">Select</option>
+                <option class="grade" value="5">O</option>
+                <option class="grade" value="4">A+</option>
+                <option class="grade" value="3">A</option>
+                <option class="grade" value="2">B</option>
+                <option class="grade" value="1">C</option>
+                <option class="grade" value="0">RA</option>
+              </select>
+           
+          </form>
+        </div>
+        <!-- <section class"btn">+ Add Course</section> -->
+        <div class="btn">
+          <button onclick="addCourse()"><i class="fa fa-plus"></i> Add</button>
+          <button onclick="removeCourse()"><i class="fa fa-minus"></i> Remove</button>
+          <button onclick="calcCgpa()"><i class="fa fa-calculator"></i>Calculate</button>
+        </div>
+      </div>
+        <div class="lastp">
+          <p id="cgpa-calc" style="color:maroon"><i class="fa fa-arrow-down"></i> Your CGPA will appear here</p>
+          <br>
+          <br>
+          <p id="starsContainer" style="color:maroon"></p>
+        </div>
+      
+    
+      
+      
+<script>
+function gradeCalc(grade, unit) {
+  if (grade === "O") {
+    return 10 * unit;
+  } else if (grade === "A+") {
+    return 9 * unit;
+  } else if (grade === "A") {
+    return 8 * unit;
+  } else if (grade === "B") {
+    return 7 * unit;
+  } else if (grade === "C") {
+    return 6 * unit;
+  } else if (grade === "RA") {
+    return 0 * unit;
+  }
+}
+
+let counter = 1;
+
+function addCourse() {
+  let addNew = document.createElement("form");
+  addNew.classList.add("add_new", `key-${counter}`);
+  const course_name = `
+  <form class="add_new key-${counter}">
+    <input type="text" placeholder="Course Code" class="courses key-${counter}" required>
+        <input type="number" placeholder="Credit Unit" class="credit-units key-${counter}" required>
+        <select class="grade key-${counter}" required>
+      <option value="select">Select</option>
+      <option value="5">O+</option>
+      <option value="4">A+</option>
+      <option value="3">A</option>
+      <option value="2">B</option>
+      <option value="1">C</option>
+      <option value="0">RA</option>
+    </select>  
+  </form>
+  `;
+  addNew.innerHTML = course_name;
+  document.getElementById("course-wrapper").appendChild(addNew);
+  counter++;
+}
+
+function removeCourse() {
+  let mainForm = document.querySelector("form.add_new");
+  mainForm.remove();
+}
+
+const reports = [];
+
+/**
+ * @description calculates cgpa
+ */
+function calcCgpa() {
+  const CGPAPARAGRAPH = document.getElementById("cgpa-calc");
+  const GRADESSELECT = document.querySelectorAll("select.grade");
+  const UNIT = document.querySelectorAll("input.credit-units");
+
+  const courseReport = {};
+
+  const listOfGrades = [];
+  const listOfUnits = [];
+  let totalUnits = 0;
+
+  GRADESSELECT.forEach((e) => {
+    let GRADES = e.options;
+    const selectedIndex = e.selectedIndex;
+    const selectedGrade = GRADES[selectedIndex];
+    const gradeValue = selectedGrade.text.toUpperCase();
+    listOfGrades.push(gradeValue);
+  });
+  console.log(listOfGrades);
+
+  UNIT.forEach((e) => {
+    const unitValue = parseInt(e.value);
+    totalUnits += unitValue;
+    listOfUnits.push(unitValue);
+  });
+  console.log(listOfUnits);
+
+  let totalEarnedUnits = 0;
+
+  for (let i = 0; i < listOfUnits.length; i++) {
+    totalEarnedUnits += gradeCalc(listOfGrades[i], listOfUnits[i]);
+  }
+  const starsContainer = document.getElementById("starsContainer");
+  const gpa = totalEarnedUnits / totalUnits;
+  
+  if (gpa >= 0){
+    CGPAPARAGRAPH.textContent = "CGPA :" + gpa.toFixed(2);  
+    if (gpa >= 9){
+      starsContainer.innerHTML = `
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+  `;
+    } 
+    else if(gpa>=8){
+      starsContainer.innerHTML = `
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+  `;
+    }
+    else if(gpa>=7){
+      starsContainer.innerHTML = `
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    
+  `;
+    }
+    else if(gpa>6){
+      starsContainer.innerHTML = `
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+   
+  `;
+    }
+    else if(gpa=6){
+      starsContainer.innerHTML = `
+    <i class="fa fa-star"></i>
+    
+  `;
+    }
+    
+  } else {
+    CGPAPARAGRAPH.textContent = "Please enter your correct grade and credit units";    
+  }
+  
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+ <body>    <div class="calculator-box">
+        <h1>CGPA CALCULATOR</h1>
+        <p>
+          This CGPA Calculator is based on the Kongu Engineering College grading
+          system.
+        </p>
+
+        <div id="course-wrapper">
+          <form class="key-0">
+              <input
+                type="text"
+                class="courses key-0"
+                required/>
+
+              <input
+                type="number"
+                class="credit-units key-0"
+                value=""
+                required/>
+          </form>
+        </div>
+        <!-- <section class"btn">+ Add Course</section> -->
+        <div class="btn">
+          <button onclick="addCourse()">+ Add Course</button>
+          <button onclick="removeCourse()">- Remove Course</button>
+        </div>
+        </div>
+
+<script>
+
+
+let counter = 1;
+
+function addCourse() {
+  let addNew = document.createElement("form");
+  addNew.classList.add("add_new");
+  const course_name = `
+  <form class="add_new" id="form1">
+    <input type="text" class="courses" required>
+        <input type="number" class="credit-units" required>
+  </form>
+  `;
+  addNew.innerHTML = course_name;
+  document.getElementById("course-wrapper").appendChild(addNew);
+  counter++;
+}
+
+function removeCourse() {
+  let mainForm = document.querySelector("form.add_new");
+  mainForm.remove();
+}
+
+/*function removeCourse() {
+  var fin=document.getElementById("form1");
+  fin.removeChild(fin.childNodes[2]);
+}*/
+
+
+</script>
+
+</body>
+
